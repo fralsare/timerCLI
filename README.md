@@ -39,8 +39,10 @@ Here is a screenshot demonstrating the application in action:
 After completing the setup and logging back in, you can run the application from your terminal:
 
 ```bash
-python3 timerCLI.py
+./timerCLI.py
 ```
+
+(or `python3 timerCLI.py` — both work, the script has a shebang and the executable bit set.)
 
 The application will start monitoring your input devices.
 

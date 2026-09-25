@@ -10,10 +10,11 @@ The script continuously monitors a list of input device files (`/dev/input/event
 
 1.  Ensure you have completed the installation steps (especially the permission setup in `INSTALL.md`).
 2.  Open your terminal in the project directory.
-3.  Execute the script using Python 3:
+3.  Execute the script:
     ```bash
-    python3 timerCLI.py
+    ./timerCLI.py
     ```
+    (or `python3 timerCLI.py` — both work, the script has a shebang and the executable bit set.)
 
 ## ⚙️ Features Overview
 

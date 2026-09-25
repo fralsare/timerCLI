@@ -31,7 +31,9 @@ sudo usermod -aG input $USER
 Once permissions are set and you have logged back in, you can execute the script:
 
 ```bash
-python3 timerCLI.py
+./timerCLI.py
 ```
+
+(or `python3 timerCLI.py` — both work, the script has a shebang and the executable bit set.)
 
 The application will begin monitoring and displaying your active/idle time.
