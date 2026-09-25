@@ -12,7 +12,7 @@ This guide provides step-by-step instructions to set up and run `timerCLI.py` on
 If you haven't already, clone the project repository:
 ```bash
 git clone <repository-url>
-cd timer-cli
+cd timerCLI
 ```
 
 ## 🔐 Step 2: Configure Input Permissions (CRITICAL)

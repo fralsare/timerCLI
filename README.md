@@ -19,7 +19,7 @@ Here is a screenshot demonstrating the application in action:
 1.  **Clone the Repository:**
     ```bash
     git clone <repository-url>
-    cd timer-cli
+    cd timerCLI
     ```
 2.  **Install Dependencies (None required for this specific version, but good practice):**
     *This script only uses standard Python libraries.*

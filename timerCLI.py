@@ -1,4 +1,4 @@
-#add this for permission - sudo usermod -aG input $USER
+#!/usr/bin/env python3
 import glob
 import os
 import sys
@@ -23,6 +23,9 @@ class InputWatcher:
     @property
     def idle(self):
         """Seconds since last input event. Returns None if no devices readable."""
+        # Returns None only if no device could be opened at startup.
+        # If fds exist but all reads fail later (e.g. permissions revoked
+        # mid-run), we still report real elapsed time — the timer will pause.
         if not self._fds:
             return None
         for fd in self._fds:
@@ -36,6 +39,13 @@ class InputWatcher:
     def close(self):
         for fd in self._fds:
             os.close(fd)
+
+
+def fmt_duration(seconds):
+    """Format seconds as MM:SS, or H:MM:SS once an hour is reached."""
+    h, rem = divmod(int(seconds), 3600)
+    m, s = divmod(rem, 60)
+    return f"{h}:{m:02d}:{s:02d}" if h else f"{m:02d}:{s:02d}"
 
 
 def main():
@@ -72,7 +82,7 @@ def main():
                 idle = cur if cur is not None else 0.0  # refresh stale idle value after pause
 
             active = time.monotonic() - start - paused_total
-            sys.stdout.write(f"\rIdle: {int(idle):3d}s | Active: {int(active//60):02d}:{int(active%60):02d}   ")
+            sys.stdout.write(f"\rIdle: {int(idle):3d}s | Active: {fmt_duration(active)}   ")
             sys.stdout.flush()
             time.sleep(1)
 
@@ -80,7 +90,7 @@ def main():
         if pause_start is not None:  # account for pause in progress
             paused_total += time.monotonic() - pause_start
         active = time.monotonic() - start - paused_total
-        print(f"\nStopped. Active: {int(active//60)}m {int(active%60)}s | Paused: {int(paused_total)}s")
+        print(f"\nStopped. Active: {fmt_duration(active)} | Paused: {fmt_duration(paused_total)}")
     finally:
         watch.close()
 
