@@ -9,6 +9,17 @@ Here is a screenshot demonstrating the application in action:
 
 ## Installation
 
+### No-install option: AppImage (Linux x86_64)
+
+Prefer not to clone the repo? Download `TimerAppCLI-x86_64.AppImage` from the [Releases page](https://github.com/fralsare/timerCLI/releases), make it executable, and run it:
+
+```bash
+chmod +x TimerAppCLI-x86_64.AppImage
+./TimerAppCLI-x86_64.AppImage
+```
+
+(The input-permission setup in the steps below still applies.)
+
 ### Prerequisites
 
 *   A Linux operating system (The input monitoring mechanism relies on Linux kernel features).
