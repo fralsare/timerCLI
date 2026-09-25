@@ -1,5 +1,8 @@
 #add this for permission - sudo usermod -aG input $USER
-import os, glob, time, sys 
+import glob
+import os
+import sys
+import time
 
 IDLE_LIMIT = 30  # seconds
 
@@ -40,9 +43,9 @@ def main():
 
     if not watch._fds:
         print("ERROR: Cannot read /dev/input/event* (no permission).")
-        print(f"  You need to be in the 'input' group:")
-        print(f"    sudo usermod -aG input $USER")
-        print(f"  Then log out and back in.")
+        print("  You need to be in the 'input' group:")
+        print("    sudo usermod -aG input $USER")
+        print("  Then log out and back in.")
         sys.exit(1)
 
     print(f"Watching {len(watch._fds)} input device(s).")
@@ -50,19 +53,23 @@ def main():
 
     start = time.monotonic()
     paused_total = 0.0
+    pause_start = None
 
     try:
         while True:
             idle = watch.idle
+            if idle is None:  # no readable devices (e.g. lost permission) — keep running
+                time.sleep(1)
+                continue
 
             if idle >= IDLE_LIMIT:
                 pause_start = time.monotonic()
                 print(f"\n\u23f8  Idle {int(idle)}s \u2014 pausing\u2026")
-                while watch.idle >= IDLE_LIMIT:
+                while (cur := watch.idle) is not None and cur >= IDLE_LIMIT:
                     time.sleep(1)
                 paused_total += time.monotonic() - pause_start
                 print("\u25b6  Resumed.\n")
-                idle = watch.idle  # changed: refresh stale idle value after pause
+                idle = cur if cur is not None else 0.0  # refresh stale idle value after pause
 
             active = time.monotonic() - start - paused_total
             sys.stdout.write(f"\rIdle: {int(idle):3d}s | Active: {int(active//60):02d}:{int(active%60):02d}   ")
@@ -70,7 +77,7 @@ def main():
             time.sleep(1)
 
     except KeyboardInterrupt:
-        if pause_start is not None:  # changed: account for pause in progress
+        if pause_start is not None:  # account for pause in progress
             paused_total += time.monotonic() - pause_start
         active = time.monotonic() - start - paused_total
         print(f"\nStopped. Active: {int(active//60)}m {int(active%60)}s | Paused: {int(paused_total)}s")
