@@ -37,3 +37,10 @@ Once permissions are set and you have logged back in, you can execute the script
 (or `python3 timerCLI.py` — both work, the script has a shebang and the executable bit set.)
 
 The application will begin monitoring and displaying your active/idle time.
+
+## 🪟 Windows Users
+
+Windows needs **no permission setup** — the timer uses the built-in Windows `GetLastInputInfo` API instead of the Linux `input` group steps above.
+
+1.  **Standalone:** Download `TimerAppCLI-x86_64.exe` from the [Releases page](https://github.com/fralsare/timerCLI/releases) and double-click it, or run `.\TimerAppCLI-x86_64.exe` in an existing terminal.
+2.  **From source (Python 3.8+, standard library only):** run `python timerCLI_windows.py`, or simply double-click / run `timerCLI_windows.bat`.

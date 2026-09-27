@@ -16,6 +16,10 @@ The script continuously monitors a list of input device files (`/dev/input/event
     ```
     (or `python3 timerCLI.py` — both work, the script has a shebang and the executable bit set.)
 
+### On Windows
+
+Use `timerCLI_windows.py` (or the `TimerAppCLI-x86_64.exe` from the Releases page) instead of `timerCLI.py`. No setup or permission steps are required — just run it. A `timerCLI_windows.bat` launcher is included in the repo for the source script.
+
 ## ⚙️ Features Overview
 
 | Feature | Description |

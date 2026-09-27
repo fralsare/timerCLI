@@ -20,6 +20,15 @@ chmod +x TimerAppCLI-x86_64.AppImage
 
 (The input-permission setup in the steps below still applies.)
 
+### Windows: standalone .exe
+
+Download `TimerAppCLI-x86_64.exe` from the [Releases page](https://github.com/fralsare/timerCLI/releases). No Python install and no admin rights required.
+
+*   **Run in an existing terminal:** open PowerShell or cmd in the file's folder and run `.\TimerAppCLI-x86_64.exe`
+*   **New window:** just double-click it
+
+(Prefer source? `python timerCLI_windows.py` works with Python 3.8+ — standard library only.)
+
 ### Prerequisites
 
 *   A Linux operating system (The input monitoring mechanism relies on Linux kernel features).
