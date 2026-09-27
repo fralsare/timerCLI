@@ -5,13 +5,13 @@ This guide provides step-by-step instructions to set up and run `timerCLI.py` on
 ## 🚀 Prerequisites
 
 *   **Operating System:** Linux (This application uses kernel-level input event monitoring).
-*   **Runtime:** Python 3.x (Standard Python library usage only).
+*   **Runtime:** Python 3.8+ (Standard Python library usage only).
 
 ## 🛠️ Step 1: Obtain the Code
 
 If you haven't already, clone the project repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/fralsare/timerCLI
 cd timerCLI
 ```
 

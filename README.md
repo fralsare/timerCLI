@@ -1,6 +1,6 @@
 # Timer CLI Application
 
-Timer CLI is a lightweight command-line utility designed for Linux systems that tracks the amount of active usage time versus idle time. It automatically pauses the active timer when no keyboard, mouse, or touch input is detected for a configurable duration.
+Timer CLI is a lightweight command-line utility designed for Linux systems that tracks the amount of active usage time versus idle time. It automatically pauses the active timer when no keyboard, mouse, or touch input is detected for a defined duration (default: 30 seconds; change the `IDLE_LIMIT` constant to adjust).
 
 ## 🖼️ Demo
 
@@ -23,13 +23,13 @@ chmod +x TimerAppCLI-x86_64.AppImage
 ### Prerequisites
 
 *   A Linux operating system (The input monitoring mechanism relies on Linux kernel features).
-*   Python 3.x
+*   Python 3.8+
 
 ### Setup Steps
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/fralsare/timerCLI
     cd timerCLI
     ```
 2.  **Install Dependencies (None required for this specific version, but good practice):**
