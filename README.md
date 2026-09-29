@@ -74,17 +74,16 @@ The application will start monitoring your input devices.
 
 ## 🙏 Support This Project
 
-Developing, maintaining, and improving this tool takes time. If you find it useful, consider supporting the work — the funds go toward **cybersecurity studies**.
+Developing, maintaining, and improving open-source tools takes time. If
+you find it useful, consider supporting the work — the funds go towards my
+**CyberSecurity studies**.
 
-Choose the payment method that's most convenient for you:
+Support via **Razorpay** using either link:
 
-[![Sponsor](https://img.shields.io/badge/sponsor%20-30363d?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/fralsare)
+- [razorpay.me/@fralsare](https://razorpay.me/@fralsare) — Quick payment link
+- [rzp.io/rzp/TdksERz](https://rzp.io/rzp/TdksERz) — Payment page link
 
-If you're in India, you can also pay directly via **Google Pay / any UPI app** by scanning the QR code below — no account sign-up required.
-
-![UPI Payment](./DonationUPI.jpeg)
-
-Thanks to all my backers for making this possible!
+Thanks for supporting independent development!
 
 ## 📜 License
 
